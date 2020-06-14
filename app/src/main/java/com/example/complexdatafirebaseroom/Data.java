@@ -10,18 +10,19 @@ import com.google.gson.annotations.SerializedName;
 import java.util.List;
 
 @Entity(tableName = "data_table")
-public abstract class Data {
+public class Data {
 
-    @Expose
-    @SerializedName("topic_quizs")
-    private List<Topic_quizsEntity> topic_quizs;
+
+//    @Expose
+//    @SerializedName("topic_quizs")
+//    private List<Topic_quizsEntity> topic_quizs;
     @PrimaryKey
     @NonNull
     int id;
-
-    public List<Topic_quizsEntity> getTopic_quizs() {
-        return topic_quizs;
-    }
+//
+//    public List<Topic_quizsEntity> getTopic_quizs() {
+//        return topic_quizs;
+//    }
 
 
     public static class Topic_quizsEntity {

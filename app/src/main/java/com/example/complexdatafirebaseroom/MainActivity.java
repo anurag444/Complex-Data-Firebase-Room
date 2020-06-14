@@ -6,8 +6,10 @@ import androidx.viewpager.widget.PagerAdapter;
 
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 
@@ -23,18 +25,17 @@ public class MainActivity extends AppCompatActivity {
 
         FirebaseFirestore db = FirebaseFirestore.getInstance();
 
-        db.collection("test").document("kw").collection("ca").document("qz")
-                .get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
-            @com.google.gson.annotations.Expose
-            @com.google.gson.annotations.SerializedName("topic_quizs")
-            public List<Data> dataList= new ArrayList<>();
+        DocumentReference reference= db.collection("test").document("kw").collection("ca").document("qz");
+        reference.get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
             @Override
             public void onSuccess(DocumentSnapshot documentSnapshot) {
+                Topic_quizs topic_quizs= (Topic_quizs) documentSnapshot.toObject(Topic_quizs.class);
 
-                //printing data from Firestore to Log
-                Log.e("Main", documentSnapshot.getData().toString());
+                assert topic_quizs != null;
+                Toast.makeText(MainActivity.this, " " + topic_quizs.getQz_id() , Toast.LENGTH_SHORT).show();
             }
         });
+
 
 
     }
