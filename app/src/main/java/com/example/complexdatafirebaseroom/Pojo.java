@@ -9,31 +9,18 @@ import com.google.gson.annotations.SerializedName;
 
 import java.util.List;
 
-@Entity(tableName = "data_table")
-public class Data {
+public class Pojo {
 
 
-    @PrimaryKey
-    @NonNull
-    @Expose
-    @SerializedName("topic_quizs")
-    private List<Topic_quizsEntity> topic_quizs=null;
-
-    public void setTopic_quizs(List<Topic_quizsEntity> topic_quizs) {
-        this.topic_quizs = topic_quizs;
-    }
-
+    private List<Topic_quizsEntity> topic_quizs;
     public List<Topic_quizsEntity> getTopic_quizs() {
         return topic_quizs;
     }
 
 
     public static class Topic_quizsEntity {
-        @Expose
-        @SerializedName("subset")
+
         private List<SubsetEntity> subset;
-        @Expose
-        @SerializedName("qz_id")
         private String qz_id;
 
         public List<SubsetEntity> getSubset() {
@@ -46,35 +33,16 @@ public class Data {
     }
 
     public static class SubsetEntity {
-        @Expose
-        @SerializedName("items")
+
         private List<ItemsEntity> items;
-        @Expose
-        @SerializedName("correct_opt_id")
         private int correct_opt_id;
-        @Expose
-        @SerializedName("qs_image_id")
         private String qs_image_id;
-        @Expose
-        @SerializedName("qs_audio_id")
         private String qs_audio_id;
-        @Expose
-        @SerializedName("vr_id")
         private String vr_id;
-        @Expose
-        @SerializedName("part_ans")
         private String part_ans;
-        @Expose
-        @SerializedName("qs_text")
         private String qs_text;
-        @Expose
-        @SerializedName("inst_text")
         private String inst_text;
-        @Expose
-        @SerializedName("qs_id")
         private String qs_id;
-        @Expose
-        @SerializedName("qz_cat")
         private String qz_cat;
 
         public List<ItemsEntity> getItems() {
@@ -119,17 +87,9 @@ public class Data {
     }
 
     public static class ItemsEntity {
-        @Expose
-        @SerializedName("audio")
         private String audio;
-        @Expose
-        @SerializedName("image")
         private String image;
-        @Expose
-        @SerializedName("text")
         private String text;
-        @Expose
-        @SerializedName("opt_id")
         private int opt_id;
 
         public String getAudio() {

@@ -7,7 +7,6 @@ import androidx.room.OnConflictStrategy;
 import androidx.room.Query;
 
 import com.example.complexdatafirebaseroom.Data;
-import com.example.complexdatafirebaseroom.Topic_quizs;
 
 import java.util.List;
 
